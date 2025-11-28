@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     exit;
 }
 
-require 'db.php';
+require './db.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
 
