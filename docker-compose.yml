@@ -3,7 +3,7 @@ services:
     build: .
     container_name: php-mysql-web
     ports:
-      - "8080:80"
+      - "80:80"
     depends_on:
       - db
     networks:
