@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student CRUD - PHP + MySQL</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Student CRUD App (PHP + MySQL)</h1>
+
+    <h2>Add / Edit Student</h2>
+    <form id="studentForm">
+        <input type="hidden" id="studentId">
+        <label>
+            Name:
+            <input type="text" id="name" required>
+        </label><br><br>
+        <label>
+            Email:
+            <input type="email" id="email" required>
+        </label><br><br>
+        <label>
+            Course:
+            <input type="text" id="course" required>
+        </label><br><br>
+        <button type="submit">Save</button>
+        <button type="button" id="resetBtn">Reset</button>
+    </form>
+
+    <h2>Student List</h2>
+    <table border="1" cellpadding="8">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="studentTableBody">
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
