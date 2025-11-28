@@ -1,0 +1,37 @@
+FROM php:8.2-apache
+
+RUN docker-php-ext-install pdo pdo_mysql
+
+COPY src/ /var/www/html/
+
+EXPOSE 80
+docker-compose.yml
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: php-mysql-web
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    networks:
+      - appnet
+
+  db:
+    image: mysql:8.0
+    container_name: php-mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: studentdb
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: app123
+    ports:
+      - "3306:3306"
+    networks:
+      - appnet
+
+networks:
+  appnet:
+    driver: bridge
