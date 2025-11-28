@@ -73,13 +73,15 @@ form.addEventListener('submit', async (e) => {
         });
     } else {
         // create
-        await fetch(apiUrl, {
+        const res=await fetch(apiUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(payload)
         });
+        const text = await res.text();
+        console.log('POST response:', text);
     }
 
     form.reset();
